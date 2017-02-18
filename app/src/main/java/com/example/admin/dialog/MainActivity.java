@@ -1,9 +1,11 @@
 package com.example.admin.dialog;
 
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+    public boolean onCreateOptionsMenu(MenuItem menu){
+        getMenuInflater().inflate(R.menu.main, (Menu) menu);
+        return true;
     }
 //确定取消对话框
     public void click1(View view){
@@ -86,5 +92,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         builder.show();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+     switch (item.getItemId()){
+         case R.id.add_item:
+             Toast.makeText(this, "U clicked Add", Toast.LENGTH_SHORT).show();
+             break;
+         case R.id.remove_item:
+             Toast.makeText(this, "U clicked Remove", Toast.LENGTH_SHORT).show();
+             break;
+         default:
+     }
+        return true;
     }
 }
